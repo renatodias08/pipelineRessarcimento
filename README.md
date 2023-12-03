@@ -64,6 +64,8 @@ Probabilidade de um sinistro ser ressarcível
 
 ![image](src/assets/to_readme/GRAFICO_TABELA.png)
 ![image](src/assets/to_readme/FUNNEL_CHAT.png)
+![image](src/assets/to_readme/SERIE_TEMPORAL.png)
+
  ##### 9) IMAGEM DOCKER 
 
 Airflow,
