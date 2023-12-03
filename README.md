@@ -60,7 +60,7 @@ Probabilidade de um sinistro ser ressarcível
 
 ![image](src/assets/to_readme/AMOSTRAGEM_TESTE.png)
 
- ##### 8) Dashboards
+ ##### 8) Dashboards Superset
 
 ![image](src/assets/to_readme/GRAFICO_TABELA.png)
 ![image](src/assets/to_readme/FUNNEL_CHAT.png)
