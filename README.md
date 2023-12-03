@@ -47,17 +47,24 @@ Probabilidade de um sinistro ser ressarcível
 
  ## 5.2) Base de Dados (Analise de Crédito)
 
-![image](src/assets/to_readme/BASE_DADOS_ANALIS_CREDITO.png)
+![image](src/assets/to_readme/BASE_DADOS_ANALISE_CREDITO.png)
 
- ##### 4) Amostragem do teste
+ ## 6) Análise Exploratória
+![image](src/assets/to_readme/ANALISE_EXPLORATORIA_GRAU.png)
+
+![image](src/assets/to_readme/ANALISE_EXPLORATORIA_GRAU_SITUACAO_SINISTRO.png)
+
+![image](src/assets/to_readme/ANALISE_EXPLORATORIA_GRAU_SITUACAO_SINISTRO_CATEGORIA.png)
+
+ ##### 47) Amostragem do teste
 
 ![image](src/assets/to_readme/AMOSTRAGEM_TESTE.png)
 
- ##### 5) Dashboards
+ ##### 8) Dashboards
 
 ![image](src/assets/to_readme/GRAFICO_TABELA.png)
 ![image](src/assets/to_readme/FUNNEL_CHAT.png)
- ##### 6) IMAGEM DOCKER 
+ ##### 9) IMAGEM DOCKER 
 
 Airflow,
 Kafka,
