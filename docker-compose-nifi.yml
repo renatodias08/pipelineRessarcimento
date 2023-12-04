@@ -1,0 +1,67 @@
+version: '3'
+
+
+x-minio-common:
+  &minio-common
+  image: minio/minio
+  command: server /data --console-address ":9001"
+  environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+  volumes:
+    - ./minio/data:/data
+  expose:
+    - "9000"
+    - "9001" 
+
+services:
+  minio:
+    <<: *minio-common
+    hostname: minio
+    ports:
+    - 9000:9000
+    - 9001:9001
+    networks:
+      - pipeline-data-net
+    deploy:
+        resources:
+          limits:
+            memory: 2GB
+          reservations:
+            memory: 1GB
+            
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    restart: always
+    hostname: zookeeper
+    container_name: zookeeper
+    networks:
+      - pipeline-data-net
+    environment:
+      - ZOOKEEPER_CLIENT_PORT=2181
+      - ZOOKEEPER_TICK_TIME=2000
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  nifi:
+    image: apache/nifi:1.15.3
+    restart: always
+    hostname: nifi
+    container_name: nifi
+    ports:
+      - 8443:8443
+    environment:
+      - NIFI_WEB_HTTP_PORT=8443
+      - NIFI_CLUSTER_IS_NODE=false
+      - NIFI_CLUSTER_NODE_PROTOCOL_PORT=8082
+      - NIFI_ZK_CONNECT_STRING=zookeeper:2181
+      - NIFI_ELECTION_MAX_WAIT=1 min
+      - NIFI_SENSITIVE_PROPS_KEY=minhachavesensitive
+      #- NIFI_WEB_PROXY_HOST=191.234.129.222:8443
+    networks:
+      - pipeline-data-net
+    depends_on:
+      - zookeeper
+    <<: *minio-common
+networks:
+  pipeline-data-net:
+    driver: bridge

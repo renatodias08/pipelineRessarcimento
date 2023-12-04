@@ -1,0 +1,74 @@
+
+version: '3'
+
+services:
+  zookeeper_kafka:
+    image: wurstmeister/zookeeper
+    hostname: zookeeper_kafka
+    ports:
+      - "2181:2181"
+    networks:
+        - pipeline-data-net
+
+  kafka:
+      image: wurstmeister/kafka
+      hostname: kafka
+      ports:
+          - 9092:9092
+          - 9093:9093
+      environment:
+          - KAFKA_BROKER_ID=1
+          - KAFKA_CREATE_TOPICS='jobs'
+          - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+          - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+          - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+          - ALLOW_PLAINTEXT_LISTENER=yes
+          - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT
+          - KAFKA_CFG_LISTENERS=CLIENT://:9092
+          - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092
+          - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
+          - KAFKA_ADVERTISED_HOST_NAME=kafka
+          - KAFKA_ZOOKEEPER_CONNECT=zookeeper_kafka:2181
+      depends_on:
+          - zookeeper_kafka 
+      networks:
+        - pipeline-data-net
+
+  producer:
+      build:
+          context: ./kafka_app/producer
+          dockerfile: Dockerfile
+      command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+      ports:
+          - 8091:8000
+      volumes:
+          - ./kafka_app/producer:/usr/src/app
+      environment:
+          - KAFKA_HOST=kafka
+          - KAFKA_PORT=9092
+      depends_on:
+          - kafka
+          - zookeeper_kafka
+      networks:
+        - pipeline-data-net
+  consumer:
+      build:
+          context: ./kafka_app/consumer
+          dockerfile: Dockerfile
+      command: uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+      volumes:
+          - ./kafka_app/consumer:/usr/src/app
+      environment:
+          - KAFKA_HOST=kafka
+          - KAFKA_PORT=9092
+          - KAFKA_TOPICS=jobs
+      depends_on:
+          - kafka
+          - zookeeper_kafka
+      networks:
+        - pipeline-data-net
+
+ 
+networks:
+  pipeline-data-net:
+    driver: bridge
