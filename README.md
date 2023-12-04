@@ -42,10 +42,10 @@ Probabilidade de um sinistro ser ressarcível
  ## 4) Descrição das camadas
 ![image](src/assets/to_readme/DESCRICAO_CAMADAS.png)
 
- ## 5.1) Base de Dados (Sinistro Automóvel)
+ ## 5) Base de Dados (Sinistro Automóvel)
 ![image](src/assets/to_readme/BASE_DADOS_SNISTRO.png)
 
- ## 5.2) Base de Dados (Analise de Crédito)
+ ### 5.12) Base de Dados (Analise de Crédito)
 
 ![image](src/assets/to_readme/BASE_DADOS_ANALISE_CREDITO.png)
 
@@ -56,17 +56,17 @@ Probabilidade de um sinistro ser ressarcível
 
 ![image](src/assets/to_readme/ANALISE_EXPLORATORIA_GRAU_SITUACAO_SINISTRO_CATEGORIA.png)
 
- ##### 47) Amostragem do teste
+## 47) Amostragem do teste
 
 ![image](src/assets/to_readme/AMOSTRAGEM_TESTE.png)
 
- ##### 8) Dashboards Superset
+ ## 8) Dashboards Superset
 
 ![image](src/assets/to_readme/GRAFICO_TABELA.png)
 ![image](src/assets/to_readme/FUNNEL_CHAT.png)
 ![image](src/assets/to_readme/SERIE_TEMPORAL.png)
 
- ##### 9) IMAGEM DOCKER 
+## 9) IMAGEM DOCKER 
 
 Airflow,
 Kafka,
@@ -81,3 +81,16 @@ Superset,
 Elasticsearch e 
 Kibana
 
+ ##### 9.1 ) Build do pipeline  `build.sh`.
+
+ ##### 9.2 ) Iniciar o pipeline `bash up.sh`
+
+  ##### 9.3 ) Então podemos conectar o seguinte respectivamente:
+- Apache-Airflow: http://localhost:8080
+- MinIO Console: http://localhost:9090
+- Jupyter: http://localhost:8888/
+- Kafka API: http://localhost:8091/kafka_producer/docs
+- API de Ressarcimento Sinistro Automóvel: http://localhost:8005/docs
+- PGAmin: http://localhost:5050/
+- Superset: http://localhost:8088/superset
+- Nifi http://localhost:8443/nifi/ (Importar o template /nifi-flow-templates/pipeline_ressarcimento_v1.xml )
