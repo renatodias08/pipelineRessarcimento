@@ -199,7 +199,7 @@ def obter_predicao(uuid: str):
     numeroSinistro=""
     for row in result:
         numeroSinistro = row[0]
-        previsaoResponse.append({ "descricaoSinistro": row[1], "status": row[2], "probabilidade": row[3],"data": row[5]})
+        previsaoResponse.append({ "descricaoSinistro": row[1], "status": row[2], "probabilidade": row[3],"dataHora": row[5]})
 
 
     cur.execute("SELECT numerosinistro, status, uuid, TO_CHAR(datahora, 'DD-MM-YYYY HH24:MI:SS') AS datahora_formatada FROM analise_credito WHERE uuid = %s ORDER BY datahora DESC LIMIT 1 ", (uuid,))
