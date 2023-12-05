@@ -87,10 +87,10 @@ Kibana
 
   ##### 9.3 ) Então podemos conectar o seguinte respectivamente:
 - Apache-Airflow: http://localhost:8080
-- MinIO Console: http://localhost:9090
+- MinIO Console: http://localhost:9001
 - Jupyter: http://localhost:8888/
 - Kafka API: http://localhost:8091/kafka_producer/docs
 - API de Ressarcimento Sinistro Automóvel: http://localhost:8005/docs
-- PGAmin: http://localhost:5050/
+- PGAmin: http://localhost:5050
 - Superset: http://localhost:8088/superset
 - Nifi http://localhost:8443/nifi/ (Importar o template /nifi-flow-templates/pipeline_ressarcimento_v1.xml )
