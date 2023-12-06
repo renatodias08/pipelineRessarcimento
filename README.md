@@ -1,7 +1,6 @@
 # Projeto-Ressarcimento Sinistro Automóvel
 
- Projeto Busca de ressarcimento do sinistro
-Probabilidade de um sinistro ser ressarcível
+ Projeto Busca de ressarcimento do sinistro. Probabilidade de um sinistro ser ressarcível
 
 ## 1) Objetivo do Projeto
 
@@ -94,3 +93,6 @@ Kibana
 - PGAmin: http://localhost:5050
 - Superset: http://localhost:8088/superset
 - Nifi http://localhost:8443/nifi/ (Importar o template /nifi-flow-templates/pipeline_ressarcimento_v1.xml )
+
+## Contato
+Se você tiver alguma dúvida ou quiser entrar em contato, pode enviar um e-mail para: <renatodias08@gmail.com>  OR [linkedin](https://www.linkedin.com/in/renato-dias-santos-687b52102/)
