@@ -322,9 +322,40 @@ services:
       depends_on:
           - postgresql
 
+  elasticsearch:
+      image: "docker.elastic.co/elasticsearch/elasticsearch:7.2.0"
+      hostname: elasticsearch
+      environment:
+          - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+          - "discovery.type=single-node"
+      ports:
+          - "9200:9200"
+      volumes:
+          - elasticsearch_data:/usr/share/elasticsearch/data
+      networks:
+        - pipeline-data-net
+        
+  kibana:
+      image: "docker.elastic.co/kibana/kibana:7.2.0"
+      ports:
+          - "5601:5601"
+      networks:
+        - pipeline-data-net
+
+  filebeat:
+    image: "docker.elastic.co/beats/filebeat:7.2.0"
+    command: filebeat setup -e -strict.perms=false -E output.elasticsearch.hosts=["http://172.28.0.14:9200"] -E setup.kibana.host=http://172.28.0.15:5601
+    user: root
+    volumes:
+      - ./airflow/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - pipeline-data-net
+
+
 volumes:
   postgres-db-volume:
-  
+  elasticsearch_data:
 networks:
   pipeline-data-net:
     driver: bridge
