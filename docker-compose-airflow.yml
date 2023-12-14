@@ -337,6 +337,7 @@ services:
         
   kibana:
       image: "docker.elastic.co/kibana/kibana:7.2.0"
+      hostname: kibana
       ports:
           - "5601:5601"
       networks:
@@ -357,5 +358,7 @@ volumes:
   postgres-db-volume:
   elasticsearch_data:
 networks:
+  default:
+    external: true
   pipeline-data-net:
     driver: bridge
