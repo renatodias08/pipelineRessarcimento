@@ -55,7 +55,13 @@
 
 ![image](src/assets/to_readme/ANALISE_EXPLORATORIA_GRAU_SITUACAO_SINISTRO_CATEGORIA.png)
 
-## 47) Amostragem do teste
+ ### 6.1) Matriz de confusão
+ ![image](src/assets/to_readme/MATRIZ_CONFUSAO.png)
+
+ ### 6.2) Relatório de Classificação
+ ![image](src/assets/to_readme/RELATORIO_CLASSIFICACAO.png)
+
+## 7) Amostragem do teste
 
 ![image](src/assets/to_readme/AMOSTRAGEM_TESTE.png)
 
