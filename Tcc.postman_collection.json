@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "2f49eb35-442d-4ba1-ac38-19e22b65b9f4",
+		"name": "Tcc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31036168"
+	},
+	"item": [
+		{
+			"name": "kafka_producer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8091/kafka_producer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"kafka_producer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analise-credito",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"numeroSinistro\": 1, \"status\": \"INADIMPLENTE\",  \"uuid\": \"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8005/v1/analise-credito",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"v1",
+						"analise-credito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8091/kafka_producer/?message=teste Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"Download MuleSoft™ Whitepaper\"\n",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8091/kafka_producer/?message=Teste Nifi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"kafka_producer",
+						""
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "Teste Nifi"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "predict-ressarcimento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"descricaoSinistro\": \"Corpo JSON recebido com sucesso hhhhhssss!\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8005/v1/predict-ressarcimento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"v1",
+						"predict-ressarcimento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ressarcrcimento -SIM",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descricaoSinistro\": \"- A CONDUTORA DO VEICULO SEGURADO CONDUZIA SEU VEICULO PELA VIA CITADA MOMENTO EM QUE UM ANIMAL NAO INDENTIFICADO CRUZOU A SUA FRENTE NAO TENDO TEMPO HABIL PARA DESVIAR VEIO A COLIDIR CONTRA O MESMO DANIFICANDO O VEICULO SEGURADO.\",\n    \"numeroSinistro\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8091/v1/ressarcimento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"v1",
+						"ressarcimento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ressarcrcimento  -NA0",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descricaoSinistro\": \" Estava parada   Na Rua Cantagalo na Vila Carrao Sao Paulo com a seta ligada para entrar na Rua Nova Jerusalem quando um veiculo que vinha atras nao parou e  bateu na parte traseiro do meu veiculo. \",\n    \"numeroSinistro\": 13\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8091/v1/ressarcimento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"v1",
+						"ressarcimento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "processo-arquivo-raw",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"descricaoSinistro\": \"Processar Arquivo\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8005/v1/processo-arquivos-raw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"v1",
+						"processo-arquivos-raw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analise-credito",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8005/v1/analise-ressarcimento/8ba8ee29-0be0-4b7e-b0da-d8e01a592d6c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"v1",
+						"analise-ressarcimento",
+						"8ba8ee29-0be0-4b7e-b0da-d8e01a592d6c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analise-credito Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8005/v1/analise-ressarcimento/9ea95d8a-6f3d-4bd8-adc6-e90c54a82d0f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8005",
+					"path": [
+						"v1",
+						"analise-ressarcimento",
+						"9ea95d8a-6f3d-4bd8-adc6-e90c54a82d0f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
