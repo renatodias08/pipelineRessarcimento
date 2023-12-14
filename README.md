@@ -1,6 +1,6 @@
 # Projeto-Ressarcimento Sinistro Automóvel
 
- Projeto Busca de ressarcimento do sinistro. Probabilidade de um sinistro ser ressarcível
+ Busca de ressarcimento do sinistro. Probabilidade de um sinistro ser ressarcível
 
 ## 1) Objetivo do Projeto
 

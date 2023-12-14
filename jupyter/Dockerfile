@@ -20,6 +20,10 @@ RUN pip install boto3
 RUN pip install requests
 RUN pip install pydantic
 RUN pip install boto3
+
+RUN pip install keras
+RUN pip install -U tensorflow
+RUN pip install -U numpy
 # Exponha a porta 8888 (a porta padrão do Jupyter)
 EXPOSE 8888
 
