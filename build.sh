@@ -25,7 +25,7 @@
    docker network connect pipeline-data-net  pipelineressarcimento_pgadmin_1
    docker network connect pipeline-data-net  jupyter
    docker network connect pipeline-data-net pipelineressarcimento_superset_1
-   docker network connect pipeline-data-net pipelineressarcimento_postgres_1
+   docker network connect pipeline-data-net pipelineressarcimento_postgresql_1
    docker network connect pipeline-data-net pipelineressarcimento_minio_1
       
 
