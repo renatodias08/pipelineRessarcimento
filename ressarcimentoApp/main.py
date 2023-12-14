@@ -37,7 +37,8 @@ with open(
     model = joblib.load(f)
 
 
-# cleaning the data
+# Limparemos as mensagens removendo palavras paradas, números e pontuação. 
+    #Em seguida, converteremos cada palavra em sua forma base usando o processo de lemmatização no pacote NLTK.
 def text_cleaning(text, remove_stop_words=True, lemmatize_words=True):
     # Clean the text, with the option to remove stop_words and to lemmatize word
 
@@ -96,7 +97,7 @@ def predict_ressarcimento(item: Item):
     output_probability = "{:.2f}".format(float(probas[:, output]))
 
     # output dictionary
-    sentiments = {0: "RESSARCIVEL", 1: "NAO_RESSARCIVEL"}
+    sentiments = {0: "NAO_RESSARCIVEL", 1: "RESSARCIVEL"}
 
     # show results
     result = {"previsao": sentiments[output], "probabilidade": output_probability}
