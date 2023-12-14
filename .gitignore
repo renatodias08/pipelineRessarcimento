@@ -153,9 +153,9 @@ dmypy.json
 cython_debug/
 data/
 
-
+base de descrições.xlsx
 sentiment_model_pipeline.pkl
-
+base_de_descricoes.csv
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
