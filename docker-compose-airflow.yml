@@ -86,6 +86,7 @@ x-airflow-common:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
     - ./airflow/plugins:/opt/airflow/plugins
+    - ./airflow/airflow.cfg:/opt/airflow/airflow.cfg
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -282,7 +283,7 @@ services:
         - ADMIN_USERNAME=admin
         - ADMIN_FIRST_NAME=Some
         - ADMIN_LAST_NAME=Name
-        - ADMIN_EMAIL=nobody@nowhere.com
+        - ADMIN_EMAIL=admin@gmail.com
         - ADMIN_PWD=admin
         - SUP_ROW_LIMIT=10000
         - SUP_WEBSERVER_THREADS=16
@@ -322,6 +323,9 @@ services:
       depends_on:
           - postgresql
 
+
+
+
   elasticsearch:
       image: "docker.elastic.co/elasticsearch/elasticsearch:7.2.0"
       hostname: elasticsearch
@@ -337,11 +341,12 @@ services:
         
   kibana:
       image: "docker.elastic.co/kibana/kibana:7.2.0"
-      hostname: kibana
       ports:
           - "5601:5601"
       networks:
         - pipeline-data-net
+
+
 
   filebeat:
     image: "docker.elastic.co/beats/filebeat:7.2.0"
@@ -355,11 +360,12 @@ services:
       - pipeline-data-net
 
 
+
+
+
 volumes:
   postgres-db-volume:
   elasticsearch_data:
 networks:
-  default:
-    external: true
   pipeline-data-net:
     driver: bridge

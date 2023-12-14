@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  jupyter:
+    build:
+      context: ./jupyter
+      dockerfile: Dockerfile
+    image: jupyter/pyspark-notebook:spark-3.2.1
+    hostname: jupyter
+    container_name: jupyter
+    ports:
+      - 8888:8888
+    networks:
+      - pipeline-data-net
+    volumes:
+      - ./jupyter/notebooks:/home/jovyan/notebooks
+      - ./jupyter/jars:/home/jovyan/jars
+      
+networks:
+  pipeline-data-net:
+    driver: bridge

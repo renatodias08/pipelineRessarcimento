@@ -5,6 +5,9 @@
     docker-compose -f docker-compose-kafka.yml up  -d --build
     docker-compose -f docker-compose-nifi.yml up  -d --build
     docker-compose -f docker-compose-airflow.yml up  -d --build
+    docker-compose -f docker-compose-ekl.yml up  -d --build
+    docker-compose -f docker-compose-jupyter.yml  -d --build
+
 
    docker logs jupyter
 
